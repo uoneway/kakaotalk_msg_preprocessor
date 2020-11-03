@@ -5,7 +5,7 @@ setup(
     description         = 'Preprocessor for kakaotalk message exported txt file',
     long_description    = open('README.md').read(),
     long_description_content_type="text/markdown",
-    version             = '0.1',
+    version             = '0.11',
     license             = 'MIT',
     author              = 'uoneway',
     author_email        = 'uoneway@gmail.com',
