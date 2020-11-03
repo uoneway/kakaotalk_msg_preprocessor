@@ -1,1 +1,1 @@
-# kakaotalk_msg_tokenizer
+# kakaotalk_msg_preprocessor
