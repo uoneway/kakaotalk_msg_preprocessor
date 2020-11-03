@@ -12,7 +12,8 @@ kakaotalk_datetime_pattern_dict = {'window_ko_date': "-{15} [0-9]{4}년 [0-9]{1,
 def check_export_file_type(file_path,
                             datetime_pattern_dict=kakaotalk_datetime_pattern_dict):
     """
-    Check the device type and language of kakaotalk_export_file through a datetime pattern in file
+    Check the device type and language of kakaotalk_export_file.
+    It is done based on datetime patterns in file
     
     Parameters
     ----------
@@ -66,7 +67,8 @@ def _str_to_datetime(file_type, text):
 def parser(file_type, file_path,
                 datetime_pattern_dict=kakaotalk_datetime_pattern_dict):
     """
-    Tokenizing the text from kaotalk_export_file based on datetime_pattern
+    Parsing the text from a kaotalk_export_file.
+    This parser divide messages based on datetime_pattern.
     
     Parameters
     ----------
