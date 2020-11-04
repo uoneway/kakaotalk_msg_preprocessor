@@ -13,7 +13,7 @@
 ### Usage
 
 ````python
-import kakaotalk_msg_tokenizer
+import kakaotalk_msg_preprocessor
 ````
 
 #### 카카오톡 메시지 파싱하기
