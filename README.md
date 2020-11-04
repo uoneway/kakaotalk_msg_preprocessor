@@ -4,10 +4,10 @@
 
 주요 기능은 다음과 같습니다.
 
-- `parser`: 카카오톡에서 export한 txt파일을 여러 메시지 정보(dict)를 담고있는 list로 파싱합니다.
+- `parse`: 카카오톡에서 export한 txt파일을 여러 메시지 정보(dict)를 담고있는 list로 파싱합니다.
     - 각 메시지 정보는 메시지를 보낸 시간(datetime), 메시지를 보낸 사람(user_name), 메시지 본문(text)를 key로 가지는 dictionary입니다.
     - `[{'datetime': datetime.datetime(2020, 6, 28, 1, 1), 'user_name': '김한길', 'text': '사진'}, {'datetime': datetime.datetime(2020, 8, 11, 12, 3), 'user_name': '김한길', 'text': 'https://www.youtube.com'}]`
-- `url_msg_extractor`: 파싱한 데이터에서 URL이 포함되어 있는 메시지만 추출하여, URL과 메시지 정보를 담고 있는 list로 반환해줍니다.
+- `url_msg_extract`: 파싱한 데이터에서 URL이 포함되어 있는 메시지만 추출하여, URL과 메시지 정보를 담고 있는 list로 반환해줍니다.
     - `[{'datetime': datetime.datetime(2020, 8, 11, 12, 3), 'user_name': '김한길', 'url': 'https://www.youtube.com'}]`
 
 
@@ -36,7 +36,7 @@ file_type = kakaotalk_msg_preprocessor.check_export_file_type(file_path)
 print(file_type)
 
 #  Parsing the text from a kaotalk_export_file
-messages = kakaotalk_msg_preprocessor.parser(file_type, file_path)
+messages = kakaotalk_msg_preprocessor.parse(file_type, file_path)
 print(messages)
 ```
 
@@ -54,7 +54,7 @@ window_ko
 #### 카카오톡 메시지에서 URL만 추출하기
 
 ```python
-url_messages = kakaotalk_msg_preprocessor.url_msg_extractor(file_type, messages)
+url_messages = kakaotalk_msg_preprocessor.url_msg_extract(file_type, messages)
 print(url_messages)
 ```
 
