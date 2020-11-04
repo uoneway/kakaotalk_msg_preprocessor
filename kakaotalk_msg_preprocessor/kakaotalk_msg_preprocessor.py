@@ -144,8 +144,8 @@ def parser(file_type, file_path,
                         user_name = temp_0_1_tokens[1].strip()
                         text = temp_01_2_tokens[1].strip()
                         msgs.append({'datetime': my_datetime,
-                                        'user_name': user_name,
-                                        'text': text
+                                    'user_name': user_name,
+                                    'text': text
                         })
 
                     buffer = line
@@ -170,7 +170,8 @@ def url_msg_extractor(file_type, msgs):
         if urls:
             for url in urls:
                 url_msgs.append({'datetime': msg['datetime'],
-                                    'url': ''.join(url)
+                                'user_name': msg['user_name'],
+                                'url': ''.join(url)
                 })
 
     return url_msgs
