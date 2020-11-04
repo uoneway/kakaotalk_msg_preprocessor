@@ -1,14 +1,26 @@
 # kakaotalk_msg_preprocessor
 
-카카오톡 대화창에서 `대화 내보내기`를 통해 export한 txt파일에 들어있는 메시지를 전처리해주는 라이브러리입니다.
+카카오톡 채팅방에서 `대화 내보내기`를 통해 생성한 파일에 있는 메시지를 전처리해주는 라이브러리입니다.
 
 주요 기능은 다음과 같습니다.
 
-- 카카오톡에서 export한 txt파일로부터 메시지를 파싱하여 
+- `parser`: 카카오톡에서 export한 txt파일을 여러 메시지 정보(dict)를 담고있는 list로 파싱합니다.
+    - 각 메시지 정보는 메시지를 보낸 시간(datetime), 메시지를 보낸 사람(user_name), 메시지 본문(text)를 key로 가지는 dictionary입니다.
+    - `[{'datetime': datetime.datetime(2020, 6, 28, 1, 1), 'user_name': '김한길', 'text': '사진'}, {'datetime': datetime.datetime(2020, 8, 11, 12, 3), 'user_name': '김한길', 'text': 'https://www.youtube.com'}]`
+- `url_msg_extractor`: 파싱한 데이터에서 URL이 포함되어 있는 메시지만 추출하여, URL과 메시지 정보를 담고 있는 list로 반환해줍니다.
+    - `[{'datetime': datetime.datetime(2020, 8, 11, 12, 3), 'user_name': '김한길', 'url': 'https://www.youtube.com'}]`
 
 
 
 ## Guide
+### Install
+
+```shell
+pip install kakaotalk_msg_tokenizer
+```
+
+
+
 
 ### Usage
 
@@ -41,7 +53,7 @@ window_ko
 
 #### 카카오톡 메시지에서 URL만 추출하기
 
-```
+```python
 url_messages = kakaotalk_msg_preprocessor.url_msg_extractor(file_type, messages)
 print(url_messages)
 ```
@@ -49,7 +61,7 @@ print(url_messages)
 예시 결과
 
 ```
-[{'datetime': datetime.datetime(2020, 8, 11, 12, 3), 'url': 'https://www.youtube.com'}]
+[{'datetime': datetime.datetime(2020, 8, 11, 12, 3), 'user_name': '김한길', 'url': 'https://www.youtube.com'}]
 ```
 
 
