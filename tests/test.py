@@ -18,10 +18,10 @@ if __name__ == '__main__':
         file_type = kakaotalk_msg_preprocessor.check_export_file_type(file_path)
         print(file_type)
         
-        messages = kakaotalk_msg_preprocessor.parser(file_type, file_path)
+        messages = kakaotalk_msg_preprocessor.parse(file_type, file_path)
         print(messages)
 
-        url_messages = kakaotalk_msg_preprocessor.url_msg_extractor(file_type, messages)
+        url_messages = kakaotalk_msg_preprocessor.url_msg_extract(file_type, messages)
         print(url_messages)
 
         print()

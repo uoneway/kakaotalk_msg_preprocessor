@@ -64,7 +64,7 @@ def _str_to_datetime(file_type, text):
     return text_dt
 
 
-def parser(file_type, file_path,
+def parse(file_type, file_path,
                 datetime_pattern_dict=kakaotalk_datetime_pattern_dict):
     """
     Parsing the text from a kaotalk_export_file.
@@ -155,18 +155,18 @@ def parser(file_type, file_path,
     return msgs
 
 
-def _url_extractor(text):
+def _url_extract(text):
     regex = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"
     urls = re.findall(regex, text)
     return urls
 
 
-def url_msg_extractor(file_type, msgs):
+def url_msg_extract(file_type, msgs):
     url_msgs = []
     for msg in msgs:
         text = msg['text']
 
-        urls = _url_extractor(text)
+        urls = _url_extract(text)
         if urls:
             for url in urls:
                 url_msgs.append({'datetime': msg['datetime'],
