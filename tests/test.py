@@ -1,5 +1,6 @@
 import sys
 import os
+import pandas as pd
 
 TEST_DIR = os.path.abspath(os.path.dirname(__file__))
 PARENT_DIR = os.path.join(TEST_DIR, '..')
@@ -24,4 +25,6 @@ if __name__ == '__main__':
         url_messages = kakaotalk_msg_preprocessor.url_msg_extract(file_type, messages)
         print(url_messages)
 
-        print()
+        input_df = pd.DataFrame.from_dict(url_messages)[['datetime', 'url']]
+        input_df.rename(columns = {'datetime' : 'clip_at'}, inplace = True)
+        print(input_df)
