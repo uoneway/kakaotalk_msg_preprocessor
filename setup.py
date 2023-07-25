@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name                = 'kakaotalk_msg_preprocessor',
     description         = 'Preprocessor for kakaotalk message exported file',
-    long_description    = open('README.md').read(),
+    long_description    = open('README.md', encoding='utf-8').read(),
     long_description_content_type="text/markdown",
     version             = '0.13',
     license             = 'MIT',
